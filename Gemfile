@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'rubocop-airbnb'
+  gem 'factory_bot_rails'
 end
 
 group :development do
