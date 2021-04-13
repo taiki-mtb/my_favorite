@@ -1,4 +1,5 @@
 class MusicsController < ApplicationController
+  before_action :logged_in_user, except: :show
 
   def new
     @music = Music.new
@@ -13,7 +14,7 @@ class MusicsController < ApplicationController
     url = params[:music][:youtube_url]
     if @music.save
       flash[:success] = "新しいmusicが登録されました"
-      redirect_to root_url
+      redirect_to @music
     else
       render 'musics/new'
     end

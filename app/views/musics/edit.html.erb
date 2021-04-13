@@ -17,7 +17,7 @@
          <%= f.date_select :date, class: 'form-control', id: 'music_date' %>
        </div>
        <div class = 'form-group'>
-         <%= f.label :youtube_url %>
+         <%= f.label :youtube_url %>  <span class="input-need">※must</span>
          <%= f.text_field :youtube_url, class: 'form-control', id: 'music_youtube_url' %>
        </div>
        <%= f.submit "更新する", class: 'btn btn-primary' %>

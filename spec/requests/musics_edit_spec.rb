@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe "音楽登録", type: :request do
-  let!(:user)  { create(:user) }
+RSpec.describe "音楽編集", type: :request do
+  let!(:user) { create(:user) }
   let!(:music) { create(:music) }
 
   context "ログインしている場合" do
@@ -14,11 +14,10 @@ RSpec.describe "音楽登録", type: :request do
       expect(response).to render_template('musics/new')
     end
 
-    it "登録後詳細ページに飛ぶこと" do
-      expect {
-        post musics_path, params: { music: { name: "name",
+    it "編集後詳細ページに飛ぶこと" do
+      patch music_path(music), params: { music: { name: "name",
                                              youtube_url: "#{"a" * 11}" } }
-      }.to change(Music, :count).by(1)
+      redirect_to music
       follow_redirect!
       expect(response).to render_template('musics/show')
     end
