@@ -1,0 +1,27 @@
+<% provide(:title, "Edit_music") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+     <%= form_with model: @music, local: true do |f| %>
+       <%= render 'shared/error_messages', object: f.object %>
+       <div class = 'form-group'>
+         <%= f.label :name %>　<span class="input-need">※must</span>
+         <%= f.text_field :name, class: 'form-control', id: 'music_name' %>
+       </div>
+       <div class = 'form-group'>
+         <%= f.label :info %>
+         <%= f.text_field :info, size: "60x4", class: 'form-control', id: 'music_info' %>
+       </div>
+       <div class = 'form-group'>
+         <%= f.label :date %>
+         <%= f.date_select :date, class: 'form-control', id: 'music_date' %>
+       </div>
+       <div class = 'form-group'>
+         <%= f.label :youtube_url %>
+         <%= f.text_field :youtube_url, class: 'form-control', id: 'music_youtube_url' %>
+       </div>
+       <%= f.submit "更新する", class: 'btn btn-primary' %>
+     <% end %>
+    </div>
+  </div>
+</div>

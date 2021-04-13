@@ -18,6 +18,18 @@ class MusicsController < ApplicationController
     end
   end
 
+  def edit
+    @music = Music.find(params[:id])
+  end
+
+  def update
+  	@music = Music.find(params[:id])
+  	if @music.update_attributes(music_params)
+  		flash[:success] = "更新されました"
+  		redirect_to @music
+  	end
+  end
+
   private
 
     def music_params

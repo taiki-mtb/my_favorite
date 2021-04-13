@@ -11,5 +11,12 @@
         <h5>リリース：<%= @music.date %></h5>
       </div>
     </div>
+    <div class="col-offset-9 col-3">
+      <div class="change-music">
+        <% if logged_in? %>
+          <%= link_to "編集", edit_music_path(@music), class: 'edit-music' %>　
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
