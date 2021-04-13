@@ -10,6 +10,7 @@ class MusicsController < ApplicationController
 
   def create
     @music = Music.new(music_params)
+    url = params[:music][:youtube_url]
     if @music.save
       flash[:success] = "新しいmusicが登録されました"
       redirect_to root_url
