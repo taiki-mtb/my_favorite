@@ -1,0 +1,22 @@
+<% provide(:title, "#{@dance.name}") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/<%= @dance.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-12 music-edit">
+      <div class="change-dance">
+        <% if logged_in? %>
+          <%= link_to "編集", edit_dance_path(@dance), class: 'edit-dance' %>　
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 music-info">
+      <h2 class="dance-name"><%= @dance.name %></h2>
+      <h4><%= @dance.info %></h4>
+      <div class="dance-date">
+        <p>動画投稿日：<%= @dance.date %></p>
+      </div>
+    </div>
+  </div>
+</div>
