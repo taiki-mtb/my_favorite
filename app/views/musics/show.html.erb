@@ -1,0 +1,22 @@
+<% provide(:title, "#{@music.name}") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/<%= @music.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-12 music-edit">
+      <div class="change-music">
+        <% if logged_in? %>
+          <%= link_to "編集", edit_music_path(@music), class: 'edit-music' %>　
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 music-info">
+      <h2 class="music-name"><%= @music.name %></h2>
+      <h4><%= @music.info %></h4>
+      <div class="music-date">
+        <h5>リリース：<%= @music.date %></h5>
+      </div>
+    </div>
+  </div>
+</div>

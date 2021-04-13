@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_090249) do
+ActiveRecord::Schema.define(version: 2021_04_13_043513) do
+
+  create_table "musics", force: :cascade do |t|
+    t.string "name"
+    t.text "info"
+    t.date "date"
+    t.string "youtube_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
