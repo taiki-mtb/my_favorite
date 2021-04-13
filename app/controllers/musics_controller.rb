@@ -30,6 +30,18 @@ class MusicsController < ApplicationController
   	end
   end
 
+  def destroy
+    @music = Music.find(params[:id])
+    if logged_in?
+    	@music.destroy
+    	flash[:success] = "削除されました"
+    	redirect_to root_url
+    else
+    	flash[:danger] = "管理人しか削除できません"
+    	redirect_to @music
+    end
+  end
+
   private
 
     def music_params

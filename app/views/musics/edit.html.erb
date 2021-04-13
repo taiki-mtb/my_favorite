@@ -21,6 +21,8 @@
          <%= f.text_field :youtube_url, class: 'form-control', id: 'music_youtube_url' %>
        </div>
        <%= f.submit "更新する", class: 'btn btn-primary' %>
+       <%= link_to "削除する", music_path(@music), method: :delete,
+                               data: { confirm: "本当に削除してよろしいですか？" } %>
      <% end %>
     </div>
   </div>
