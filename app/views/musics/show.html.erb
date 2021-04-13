@@ -1,0 +1,15 @@
+<% provide(:title, "#{@music.name}") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="music-youtube_url">動画を置く<%#= link_to "#{@dish.reference}", @dish.reference, target: "_blank" %></h4>
+    </div>
+    <div class="col-6 col-offset-3">
+      <h2 class="music-name"><%= @music.name %></h2>
+      <h4><%= @music.info %></h4>
+      <div class="music-date">
+        <h5>リリース：<%= @music.date %></h5>
+      </div>
+    </div>
+  </div>
+</div>
