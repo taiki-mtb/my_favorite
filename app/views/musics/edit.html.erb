@@ -1,7 +1,7 @@
 <% provide(:title, "Edit_music") %>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-12">
      <%= form_with model: @music, local: true do |f| %>
        <%= render 'shared/error_messages', object: f.object %>
        <div class = 'form-group'>

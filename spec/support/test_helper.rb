@@ -11,7 +11,7 @@ end
 
 def login_for_system(user)
   visit login_path
-  fill_in "user_name",    with: user.name
+  fill_in "user_name",     with: user.name
   fill_in "user_password", with: user.password
   click_button "ログイン"
 end

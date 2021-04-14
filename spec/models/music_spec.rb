@@ -14,7 +14,7 @@ RSpec.describe Music, type: :model do
       expect(music.errors[:name]).to include("を入力してください")
     end
 
-    it "名前が30文字以内であること" do
+    it "名前が50文字以内であること" do
       music = build(:music, name: "あ" * 51)
       music.valid?
       expect(music.errors[:name]).to include("は50文字以内で入力してください")

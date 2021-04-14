@@ -39,3 +39,12 @@ Style/MixinUsage:
 
 Style/MutableConstant:
   Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Airbnb/DefaultScope:
+  Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
