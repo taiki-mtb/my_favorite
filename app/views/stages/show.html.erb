@@ -1,0 +1,22 @@
+<% provide(:title, "#{@stage.name}") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <p>画像を置く</p>
+    </div>
+    <div class="col-6 stage-info">
+      <h2 class="stage-name"><%= @stage.name %></h2>
+      <h4><%= @stage.info %></h4>
+      <div class="stage-date">
+        <h5>公演日程：<%= @stage.from_date %>　〜　<%= @stage.until_date %></h5>
+      </div>
+    </div>
+    <div class="col-12 edit-button">
+      <div class="change-stage">
+        <% if logged_in? %>
+          <%= link_to "編集", edit_stage_path(@stage) %>　
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
