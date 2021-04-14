@@ -1,7 +1,9 @@
 <% provide(:title, "#{@stage.name}") %>
 <div class="container">
   <div class="row">
-    <%= render "stage_images", stage: @stage %>
+    <% if @stage.images.attached? %>
+      <%= render "stage_images", stage: @stage %>
+    <% end %>
     <div class="col-5 stage-info">
       <h2 class="stage-name"><%= @stage.name %></h2>
       <h4><%= @stage.info %></h4>

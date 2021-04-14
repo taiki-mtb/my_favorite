@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :musics
   resources :dances
   resources :stages
+  resources :artists
 end
