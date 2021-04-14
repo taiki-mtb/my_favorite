@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "ログイン", type: :request do
-  let!(:user) { create(:user) } 
+  let!(:user) { create(:user) }
 
   it "正常なレスポンスを返すこと" do
     get login_path
@@ -28,5 +28,4 @@ RSpec.describe "ログイン", type: :request do
                                          password: user.password } }
     expect(is_logged_in?).not_to be_truthy
   end
-
 end

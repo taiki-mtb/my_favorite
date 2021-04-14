@@ -1,6 +1,6 @@
-#require 'rails_helper'
+# require 'rails_helper'
 
-#RSpec.describe "TopPages", type: :request do
+# RSpec.describe "TopPages", type: :request do
 #  describe "GET /top" do
 #    it "returns http success" do
 #      get "/top_pages/top"
@@ -8,4 +8,4 @@
 #    end
 #  end
 
-#end
+# end
