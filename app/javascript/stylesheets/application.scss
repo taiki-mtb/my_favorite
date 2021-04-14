@@ -199,3 +199,55 @@ p {
 .music-info {
   text-align: center;
 }
+
+
+
+
+//// 舞台・アーティストページ ////
+
+img.sized {
+  width: 90%;
+  height: 90%;
+}
+
+.carousel{
+  height: 200px;
+  margin:auto;
+}
+
+.carousel .item {
+  height: 100%;
+}
+
+.carousel img {
+  position: absolute;
+  width: 90%;
+}
+
+@media (min-width: 320px) {
+  .carousel,
+  .carousel .carousel-item,
+  .carousel .item-mask,
+  .carousel-inner .carousel-item .item-mask img {
+    height:100px;
+  }
+}
+
+@media (min-width: 480px) {
+  .carousel,
+  .carousel .carousel-item,
+  .carousel .item-mask,
+  .carousel-inner .carousel-item .item-mask img {
+    height:400px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel,
+  .carousel .carousel-item,
+  .carousel .item-mask,
+  .carousel-inner .carousel-item .item-mask img {
+    height:500px;
+    width: 90%;
+  }
+}
