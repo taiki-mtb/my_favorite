@@ -1,10 +1,8 @@
 <% provide(:title, "#{@stage.name}") %>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <p>画像を置く</p>
-    </div>
-    <div class="col-6 stage-info">
+    <%= render "stage_images", stage: @stage %>
+    <div class="col-5 stage-info">
       <h2 class="stage-name"><%= @stage.name %></h2>
       <h4><%= @stage.info %></h4>
       <div class="stage-date">
