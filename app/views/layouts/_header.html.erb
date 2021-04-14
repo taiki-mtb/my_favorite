@@ -1,14 +1,47 @@
 <header class="navbar navbar-fixed-top">
  <div class="container">
-   <%= link_to "top_page", root_url %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'ログイン', login_path %></li>
-        <% end %>
-      </ul>
+<!-- ナビゲーションバー -->    
+    <nav class="navbar navbar-light bg-light fixed-top">
+      <%= link_to "top", root_url, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <!-- ドロップダウンタイプ -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <% if logged_in? %>
+            <li class="nav-item">
+              <%= link_to 'new_music', 'musics/new', class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'new_dance', 'dances/new', class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'new_stage', 'stages/new', class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'new_artist', 'artists/new', class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-itme">
+              <%= link_to 'ログイン', login_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </nav>
  </div>
 </header>
