@@ -1,4 +1,5 @@
 class StagesController < ApplicationController
+  before_action :logged_in_user, except: :show
 
   def new
     @stage = Stage.new
