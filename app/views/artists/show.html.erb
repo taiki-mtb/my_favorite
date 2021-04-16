@@ -1,0 +1,19 @@
+<% provide(:title, "#{@artist.name}") %>
+<div class="container">
+  <div class="row">
+    <% if @artist.images.attached? %>
+      <%= render "artist_images", artist: @artist %>
+    <% end %>
+    <div class="col-5 artist-info">
+      <h2 class="artist-name"><%= @artist.name %></h2>
+      <h4><%= @artist.info %></h4>
+    </div>
+    <div class="col-12 edit-button">
+      <div class="change-artist">
+        <% if logged_in? %>
+          <%= link_to "編集", edit_artist_path(@artist) %>　
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

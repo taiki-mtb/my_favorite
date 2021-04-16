@@ -1,34 +1,32 @@
 require 'rails_helper'
 
-RSpec.describe "Dances", type: :system do
+RSpec.describe "Artist", type: :system do
   let!(:user) { create(:user) }
-  let!(:dance) { create(:dance) }
+  let!(:artist) { create(:artist) }
 
-  describe "ダンス登録ページ" do
+  describe "アーティスト登録ページ" do
     before do
       login_for_system(user)
-      visit new_dance_path
+      visit new_artist_path
     end
 
     context "ページレイアウト" do
       it "正しいタイトルが表示されること" do
-        expect(page).to have_title full_title('New_dance')
+        expect(page).to have_title full_title('New_artist')
       end
 
       it "入力部分に適切なラベルが表示されること" do
         expect(page).to have_content 'Name'
         expect(page).to have_content 'Info'
-        expect(page).to have_content 'Date'
-        expect(page).to have_content 'Youtube url'
+        expect(page).to have_content 'Image'
       end
     end
 
-    context "ダンス登録処理" do
+    context "アーティスト登録処理" do
       it "有効な情報で登録すると登録成功のフラッシュが表示されること" do
         fill_in "Name", with: "name"
-        fill_in "Youtube url", with: "#{"a" * 11}"
         click_button "登録する"
-        expect(page).to have_content "新しいdanceが登録されました"
+        expect(page).to have_content "新しいartistが登録されました"
       end
 
       it "無効な情報で登録すると登録失敗のフラッシュが表示されること" do
@@ -39,20 +37,20 @@ RSpec.describe "Dances", type: :system do
     end
   end
 
-  describe "ダンス詳細ページ" do
+  describe "アーティスト詳細ページ" do
     before do
       login_for_system(user)
-      visit dance_path(dance)
+      visit artist_path(artist)
     end
 
     context "ページレイアウト" do
       it "正しいタイトルが表示されること" do
-        expect(page).to have_title full_title("#{dance.name}")
+        expect(page).to have_title full_title("#{artist.name}")
       end
 
-      it "ダンス情報が表示されること" do
-        expect(page).to have_content dance.name
-        expect(page).to have_content dance.info
+      it "アーティスト情報が表示されること" do
+        expect(page).to have_content artist.name
+        expect(page).to have_content artist.info
       end
     end
 

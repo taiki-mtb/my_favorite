@@ -48,3 +48,6 @@ Airbnb/DefaultScope:
 
 Style/MultilineTernaryOperator:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 150

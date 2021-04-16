@@ -1,0 +1,16 @@
+<%= form_with model: @artist, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class = 'form-group'>
+    <%= f.label :name %>  <span class="input-need">※must</span>
+    <%= f.text_field :name, class: 'form-control', id: 'artist_name' %>
+  </div>
+  <div class = 'form-group'>
+    <%= f.label :info %>
+    <%= f.text_field :info, size: "60x4", class: 'form-control', id: 'artist_info' %>
+  </div>
+  <div class = 'form-group'>
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true, class: 'form-control', id: 'images' %>
+  </div>
+  <%= f.submit nil, class: 'btn btn-primary' %>
+<% end %>

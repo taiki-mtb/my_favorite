@@ -3,6 +3,7 @@ class StagesController < ApplicationController
 
   def new
     @stage = Stage.new
+    @artist = @stage.artists.build
   end
 
   def show
@@ -10,8 +11,10 @@ class StagesController < ApplicationController
   end
 
   def create
-    @stage = Stage.new(stage_params)
+    @stage = Stage.new(stage_params.slice(:title, :info, :from_date, :until_date, :place, images: []))
     if @stage.save
+      @artist = Artist.find_or_create_by(name: stage_params[:name])
+      @stage.artists << @artist
       flash[:success] = "新しいstageが登録されました"
       redirect_to @stage
     else
@@ -20,15 +23,15 @@ class StagesController < ApplicationController
   end
 
   def edit
-  	@stage = Stage.find(params[:id])
+    @stage = Stage.find(params[:id])
   end
 
   def update
-  	@stage = Stage.find(params[:id])
-  	if @stage.update_attributes(stage_params)
+    @stage = Stage.find(params[:id])
+    if @stage.update_attributes(stage_params)
       flash[:success] = "更新されました"
       redirect_to @stage
-  	end
+    end
   end
 
   def destroy
@@ -45,7 +48,6 @@ class StagesController < ApplicationController
   private
 
     def stage_params
-      params.require(:stage).permit(:name, :info, :from_date, :until_date, :place, images: [])
+      params.require(:stage).permit(:title, :info, :from_date, :until_date, :place, images: [])
     end
-
 end

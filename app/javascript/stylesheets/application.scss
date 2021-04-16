@@ -105,22 +105,30 @@ p {
 }
 
 .checkbox {
- margin-top: -10px;
- margin-bottom: 10px;
- span {
-   margin-left: 20px;
-   font-weight: normal;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
  }
 }
- #session_remember_me  {
- width: auto;
- margin-left: 0;
+
+#session_remember_me  {
+  width: auto;
+  margin-left: 0;
+}
+
+.navbar-light .navbar-toggler {
+  border-color: rgba(0,0,0,0);
+}
+
+.navbar-nav {
+  text-align: right;
 }
 
 
 
-
-//// 音楽登録ページ ////
+//// 登録ページ ////
 .input-need {
   color: red;
   font-size: 13px;
@@ -250,4 +258,24 @@ img.sized {
     height:500px;
     width: 90%;
   }
+}
+
+
+
+//// トップページ  ////
+
+.contents_index {
+  margin-top: 40px;
+}
+
+.contents_image {
+  width: 100%;
+}
+
+.contents_name {
+  overflow: hidden;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
