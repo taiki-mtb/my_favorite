@@ -54,14 +54,14 @@ RSpec.describe "Artist", type: :system do
       end
     end
 
-#    context "アーティストの削除", js: true do
-#      it "削除成功のフラッシュが表示されること" do
-#        within find('.change-artist') do
-#          click_on '削除'
-#        end
-#        page.driver.browser.switch_to.alert.accept
-#        expect(page).to have_content 'artistが削除されました'
-#      end
-#    end
+# context "アーティストの削除", js: true do
+#   it "削除成功のフラッシュが表示されること" do
+#     within find('.change-artist') do
+#       click_on '削除'
+#     end
+#     page.driver.browser.switch_to.alert.accept
+#     expect(page).to have_content 'artistが削除されました'
+#   end
+# end
   end
 end

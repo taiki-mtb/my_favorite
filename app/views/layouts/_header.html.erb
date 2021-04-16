@@ -21,16 +21,16 @@
           </li>
           <% if logged_in? %>
             <li class="nav-item">
-              <%= link_to 'new_music', 'musics/new', class: "nav-link" %>
+              <%= link_to 'new_music', '/musics/new', class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'new_dance', 'dances/new', class: "nav-link" %>
+              <%= link_to 'new_dance', '/dances/new', class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'new_stage', 'stages/new', class: "nav-link" %>
+              <%= link_to 'new_stage', '/stages/new', class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'new_artist', 'artists/new', class: "nav-link" %>
+              <%= link_to 'new_artist', '/artists/new', class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_080228) do
+ActiveRecord::Schema.define(version: 2021_04_14_163117) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 2021_04_14_080228) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "stage_artists", force: :cascade do |t|
+    t.integer "stage_id", null: false
+    t.integer "artist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_stage_artists_on_artist_id"
+    t.index ["stage_id"], name: "index_stage_artists_on_stage_id"
+  end
+
   create_table "stages", force: :cascade do |t|
     t.string "name"
     t.text "info"
@@ -77,4 +86,6 @@ ActiveRecord::Schema.define(version: 2021_04_14_080228) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "stage_artists", "artists"
+  add_foreign_key "stage_artists", "stages"
 end
