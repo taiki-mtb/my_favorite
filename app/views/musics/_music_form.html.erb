@@ -16,5 +16,11 @@
     <%= f.label :youtube_url %>  <span class="input-need">※must</span>
     <%= f.text_field :youtube_url, class: 'form-control', id: 'music_youtube_url' %>
   </div>
+  <div class = 'form-group'>
+    <%= f.label :tag %>
+    <%= f.text_field :tag_name,
+                     placeholder: "タグを複数つけるには' , 'で区切ってください", 
+                     class: 'form-control' %>
+  </div>
   <%= f.submit nil, class: 'btn btn-primary' %>
 <% end %>

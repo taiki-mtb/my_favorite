@@ -7,11 +7,14 @@ class DancesController < ApplicationController
 
   def show
     @dance = Dance.find(params[:id])
+    @dance_tags = @dance.tags   
   end
 
   def create
     @dance = Dance.new(dance_params)
+    tag_list = params[:dance][:tag_name].split(',')
     if @dance.save
+      @dance.save_tag(tag_list)
       flash[:success] = "新しいdanceが登録されました"
       redirect_to @dance
     else
@@ -21,13 +24,16 @@ class DancesController < ApplicationController
 
   def edit
     @dance = Dance.find(params[:id])
+    @tag_list = @dance.tags.pluck(:tag_name).join(',')
   end
 
   def update
     @dance = Dance.find(params[:id])
+    tag_list = params[:dance][:tag_name].split(',')
     if @dance.update_attributes(dance_params)
-    flash[:success] = "更新されました"
-    redirect_to @dance
+      @dance.save_tag(tag_list)
+      flash[:success] = "更新されました"
+      redirect_to @dance
     end
   end
 

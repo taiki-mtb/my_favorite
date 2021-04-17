@@ -28,5 +28,11 @@
     <%= f.label :images %>
     <%= f.file_field :images, multiple: true, class: 'form-control', id: 'images' %>
   </div>
+  <div class = 'form-group'>
+    <%= f.label :tag %>
+    <%= f.text_field :tag_name,
+                     placeholder: "タグを複数つけるには' , 'で区切ってください", 
+                     class: 'form-control' %>
+  </div>
   <%= f.submit nil, class: 'btn btn-primary' %>
 <% end %>

@@ -8,11 +8,14 @@ class StagesController < ApplicationController
 
   def show
     @stage = Stage.find(params[:id])
+    @stage_tags = @stage.tags
   end
 
   def create
     @stage = Stage.new(stage_params.slice(:title, :info, :from_date, :until_date, :place, images: []))
+    tag_list = params[:stage][:tag_name].split(',')
     if @stage.save
+      @stage.save_tag(tag_list)
       @artist = Artist.find_or_create_by(name: stage_params[:name])
       @stage.artists << @artist
       flash[:success] = "新しいstageが登録されました"
@@ -24,11 +27,14 @@ class StagesController < ApplicationController
 
   def edit
     @stage = Stage.find(params[:id])
+    @tag_list = @stage.tags.pluck(:tag_name).join(',')
   end
 
   def update
     @stage = Stage.find(params[:id])
+    tag_list = params[:stage][:tag_name].split(',')
     if @stage.update_attributes(stage_params)
+      @stage.save_tag(tag_list)
       flash[:success] = "更新されました"
       redirect_to @stage
     end

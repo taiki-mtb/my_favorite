@@ -17,6 +17,9 @@
       <div class="music-date">
         <h5>リリース：<%= @music.date %></h5>
       </div>
+      <% @music_tags.each do |tag| %>
+        <%= tag.tag_name %>
+      <% end %>
     </div>
   </div>
 </div>

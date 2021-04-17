@@ -17,6 +17,9 @@
           <%= link_to "編集", edit_stage_path(@stage) %>　
         <% end %>
       </div>
+      <% @stage_tags.each do |tag| %>
+        <%= tag.tag_name %>
+      <% end %>
     </div>
   </div>
 </div>
