@@ -11,6 +11,12 @@ class StagesController < ApplicationController
     @stage_tags = @stage.tags
   end
 
+  def search
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @stages = @tag.stages.all
+  end
+
   def create
     @stage = Stage.new(stage_params.slice(:title, :info, :from_date, :until_date, :place, images: []))
     tag_list = params[:stage][:tag_name].split(',')

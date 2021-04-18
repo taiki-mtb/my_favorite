@@ -10,6 +10,12 @@ class MusicsController < ApplicationController
     @music_tags = @music.tags
   end
 
+  def search
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @musics = @tag.musics.all
+  end
+
   def create
     @music = Music.new(music_params)
     tag_list = params[:music][:tag_name].split(',')

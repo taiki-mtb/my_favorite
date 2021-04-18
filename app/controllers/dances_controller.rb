@@ -10,6 +10,12 @@ class DancesController < ApplicationController
     @dance_tags = @dance.tags   
   end
 
+  def search
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @dances = @tag.dances.all
+  end
+
   def create
     @dance = Dance.new(dance_params)
     tag_list = params[:dance][:tag_name].split(',')

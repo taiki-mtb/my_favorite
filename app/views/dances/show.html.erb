@@ -18,7 +18,7 @@
         <p>動画投稿日：<%= @dance.date %></p>
       </div>
       <% @dance_tags.each do |tag| %>
-        <%= tag.tag_name %>
+        <%= link_to tag.tag_name, tag_dances_path(tag_id: tag.id) %>
       <% end %>
     </div>
   </div>
