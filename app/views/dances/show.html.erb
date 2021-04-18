@@ -11,12 +11,15 @@
         <% end %>
       </div>
     </div>
-    <div class="col-12 music-info">
+    <div class="col-12 dance-info">
       <h2 class="dance-name"><%= @dance.name %></h2>
       <h4><%= @dance.info %></h4>
       <div class="dance-date">
         <p>動画投稿日：<%= @dance.date %></p>
       </div>
+      <% @dance_tags.each do |tag| %>
+        <%= link_to tag.tag_name, tag_dances_path(tag_id: tag.id) %>
+      <% end %>
     </div>
   </div>
 </div>
