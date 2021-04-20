@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_17_061704) do
+ActiveRecord::Schema.define(version: 2021_04_20_165917) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +45,25 @@ ActiveRecord::Schema.define(version: 2021_04_17_061704) do
     t.text "info"
     t.date "date"
     t.string "youtube_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "list_maps", force: :cascade do |t|
+    t.integer "list_id"
+    t.integer "dance_id"
+    t.integer "music_id"
+    t.integer "stage_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dance_id"], name: "index_list_maps_on_dance_id"
+    t.index ["list_id"], name: "index_list_maps_on_list_id"
+    t.index ["music_id"], name: "index_list_maps_on_music_id"
+    t.index ["stage_id"], name: "index_list_maps_on_stage_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "list_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -105,6 +124,10 @@ ActiveRecord::Schema.define(version: 2021_04_17_061704) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "list_maps", "dances"
+  add_foreign_key "list_maps", "musics"
+  add_foreign_key "list_maps", "stages"
+  add_foreign_key "list_maps", "tags", column: "list_id"
   add_foreign_key "stage_artists", "artists"
   add_foreign_key "stage_artists", "stages"
   add_foreign_key "tag_maps", "dances"

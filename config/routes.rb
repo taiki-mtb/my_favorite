@@ -12,4 +12,9 @@ Rails.application.routes.draw do
     get 'dances',    to: 'dances#search'
     get 'stages',    to: 'stages#search'
   end
+  resources :lists do
+    get 'musics',    to: 'musics#list'
+    get 'dances',    to: 'dances#list'
+    get 'stages',    to: 'stages#list'
+  end
 end

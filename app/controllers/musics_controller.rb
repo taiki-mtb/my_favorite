@@ -8,6 +8,7 @@ class MusicsController < ApplicationController
   def show
     @music = Music.find(params[:id])
     @music_tags = @music.tags
+    @music_lists = @music.lists
   end
 
   def search
@@ -16,11 +17,18 @@ class MusicsController < ApplicationController
     @musics = @tag.musics.all
   end
 
+  def list
+    @list_all = List.all
+    @list = List.find(params[:list_id])
+    @musics = @list.musics.all
+  end
+
   def create
     @music = Music.new(music_params)
     tag_list = params[:music][:tag_name].split(',')
+    list_all = params[:music][:list_name].split(',')
     if @music.save
-      @music.save_tag(tag_list)
+      @music.save_list(list_all)
       flash[:success] = "新しいmusicが登録されました"
       redirect_to @music
     else
@@ -31,13 +39,16 @@ class MusicsController < ApplicationController
   def edit
     @music = Music.find(params[:id])
     @tag_list = @music.tags.pluck(:tag_name).join(',')
+    @list_all = @music.lists.pluck(:list_name).join(',')
   end
 
   def update
     @music = Music.find(params[:id])
     tag_list = params[:music][:tag_name].split(',')
+    list_all = params[:music][:list_name].split(',')
     if @music.update_attributes(music_params)
       @music.save_tag(tag_list)
+      @music.save_list(list_all)
       flash[:success] = "更新されました"
       redirect_to @music
     end
