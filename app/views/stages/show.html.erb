@@ -20,6 +20,13 @@
       <% @stage_tags.each do |tag| %>
         <%= link_to tag.tag_name, tag_stages_path(tag_id: tag.id) %>
       <% end %>
+      <p>
+        <% if @stage.lists %>
+          <% @stage_lists.each do |list| %>
+            <%= link_to list.list_name, list_stages_path(list_id: list.id) %>
+          <% end %>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
