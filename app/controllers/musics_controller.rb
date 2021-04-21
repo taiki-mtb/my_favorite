@@ -28,6 +28,7 @@ class MusicsController < ApplicationController
     tag_list = params[:music][:tag_name].split(',')
     list_all = params[:music][:list_name].split(',')
     if @music.save
+      @music.save_tag(tag_list)
       @music.save_list(list_all)
       flash[:success] = "新しいmusicが登録されました"
       redirect_to @music

@@ -20,6 +20,13 @@
       <% @dance_tags.each do |tag| %>
         <%= link_to tag.tag_name, tag_dances_path(tag_id: tag.id) %>
       <% end %>
+      <p>
+        <% if @dance.lists %>
+          <% @dance_lists.each do |list| %>
+            <%= link_to list.list_name, list_dances_path(list_id: list.id) %>
+          <% end %>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
