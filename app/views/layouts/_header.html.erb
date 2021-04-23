@@ -36,10 +36,13 @@
               <%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %>
             </li>
           <% else %>
-            <li class="nav-itme">
+            <li class="nav-item">
               <%= link_to 'ログイン', login_path, class: "nav-link" %>
             </li>
           <% end %>
+            <li class="nav-item">
+              <%= link_to '再生リスト', '/lists/', class: "nav-link" %>
+            </li>
         </ul>
       </div>
     </nav>

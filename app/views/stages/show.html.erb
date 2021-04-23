@@ -4,10 +4,10 @@
     <% if @stage.images.attached? %>
       <%= render "stage_images", stage: @stage %>
     <% end %>
-    <div class="col-5 stage-info">
-      <h2 class="stage-name"><%= @stage.name %></h2>
+    <div class="col-5 contents-info">
+      <h2 class="contents-name"><%= @stage.name %></h2>
       <h4><%= @stage.info %></h4>
-      <div class="stage-date">
+      <div class="contents-date">
         <h5>公演日程：<%= @stage.from_date %>　〜　<%= @stage.until_date %></h5>
       </div>
     </div>

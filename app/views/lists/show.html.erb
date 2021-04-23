@@ -1,0 +1,13 @@
+<% provide(:title, "list") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= "#{@list.list_name}の再生リスト" %>
+    </div>
+    <div class="col-md-12">
+      <% @contents.each do |contents| %>
+        <%= link_to contents.name, "../#{"#{contents.class}".downcase}s/#{contents.id}" %>
+      <% end %>
+    </div>
+  </div>
+</div>

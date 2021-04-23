@@ -11,11 +11,11 @@
         <% end %>
       </div>
     </div>
-    <div class="col-12 dance-info">
-      <h2 class="dance-name"><%= @dance.name %></h2>
+    <div class="col-12 contents-info">
+      <h2 class="contents-name"><%= @dance.name %></h2>
       <h4><%= @dance.info %></h4>
-      <div class="dance-date">
-        <p>動画投稿日：<%= @dance.date %></p>
+      <div class="contents-date">
+        <h5>動画投稿日：<%= @dance.date %></h5>
       </div>
       <% @dance_tags.each do |tag| %>
         <%= link_to tag.tag_name, tag_dances_path(tag_id: tag.id) %>

@@ -137,11 +137,11 @@ p {
 
 
 
-//// 音楽詳細ページ ////
+//// 詳細ページ ////
 .music-user-name {
   display: inline-block;
 }
-.music-name {
+.contents-name {
   font-size: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -181,7 +181,7 @@ p {
   margin-bottom: 20px;
 }
 
-.music-date {
+.contents-date {
   h5 {
     font-size: 16px;
     display: inline-block;
@@ -204,7 +204,7 @@ p {
   text-align: right;
 }
 
-.music-info {
+.info {
   text-align: center;
 }
 
