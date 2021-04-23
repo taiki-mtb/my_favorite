@@ -1,0 +1,11 @@
+<% provide(:title, "list") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>再生リスト一覧</p>
+      <% @list.each do |list| %>
+        <%= link_to list.list_name, list_path(list) %>  
+      <% end %>      
+    </div>
+  </div>
+</div>

@@ -11,15 +11,24 @@
         <% end %>
       </div>
     </div>
-    <div class="col-12 music-info">
-      <h2 class="music-name"><%= @music.name %></h2>
+    <div class="col-12 contents-info">
+      <h2 class="contents-name"><%= @music.name %></h2>
       <h4><%= @music.info %></h4>
-      <div class="music-date">
+      <div class="contents-date">
         <h5>リリース：<%= @music.date %></h5>
       </div>
-      <% @music_tags.each do |tag| %>
-        <%= link_to tag.tag_name, tag_musics_path(tag_id: tag.id) %>
-      <% end %>
+      <p>
+        <% @music_tags.each do |tag| %>
+          <%= link_to tag.tag_name, tag_musics_path(tag_id: tag.id) %>
+        <% end %>
+      </p>
+      <p>
+        <% if @music.lists %>
+          <% @music_lists.each do |list| %>
+            <%= link_to list.list_name, list_musics_path(list_id: list.id) %>
+          <% end %>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>

@@ -1,0 +1,18 @@
+<% provide(:title, "list") %>
+<div class="container">
+  <div class="row">
+    <!-- <div class="col-md-12"> -->
+      <!-- <#% @tag_list.each do |list| %> -->
+        <!-- <#%= link_to list.tag_name, tag_musics_path(music_tag_id: list.id) %>   -->
+      <!-- <#% end %> -->
+    <!-- </div> -->
+    <div class="col-12">
+      <p>
+        <%= "#{@list.list_name} - のdance一覧" %>
+      </p>
+      <% @dances.each do |dance| %>
+        <%= link_to dance.name, dance %>
+      <% end %>
+    </div>
+  </div>
+</div>

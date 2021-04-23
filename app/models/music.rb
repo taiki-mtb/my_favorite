@@ -6,6 +6,8 @@ class Music < ApplicationRecord
   before_save :shape_off
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
+  has_many :list_maps, dependent: :destroy
+  has_many :lists, through: :list_maps
 
   def shape_off
     self.youtube_url = youtube_url.last(11)

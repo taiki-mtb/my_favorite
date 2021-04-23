@@ -2,7 +2,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-        <iframe width="100%" height="600px" src="https://www.youtube.com/embed/<%= @random_movie %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="100%" height="600px" 
+                src="https://www.youtube.com/embed/<%= "#{@random_movie.youtube_url}" %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-12 contents-info">
+      <%= link_to @random_movie.name, "/#{"#{@random_movie.class}".downcase}s/#{@random_movie.id}" %>
     </div>
   </div>
   <div class="col-12 contents_index">

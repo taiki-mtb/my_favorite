@@ -9,6 +9,7 @@ class StagesController < ApplicationController
   def show
     @stage = Stage.find(params[:id])
     @stage_tags = @stage.tags
+    @stage_lists = @stage.lists
   end
 
   def search
@@ -17,11 +18,19 @@ class StagesController < ApplicationController
     @stages = @tag.stages.all
   end
 
+  def list
+    @list_all = List.all
+    @list = List.find(params[:list_id])
+    @stages = @list.stages.all
+  end
+
   def create
     @stage = Stage.new(stage_params.slice(:title, :info, :from_date, :until_date, :place, images: []))
     tag_list = params[:stage][:tag_name].split(',')
+    list_all = params[:stage][:list_name].split(',')
     if @stage.save
       @stage.save_tag(tag_list)
+      @stage.save_list(list_all)
       @artist = Artist.find_or_create_by(name: stage_params[:name])
       @stage.artists << @artist
       flash[:success] = "新しいstageが登録されました"
@@ -34,13 +43,16 @@ class StagesController < ApplicationController
   def edit
     @stage = Stage.find(params[:id])
     @tag_list = @stage.tags.pluck(:tag_name).join(',')
+    @list_all = @stage.lists.pluck(:tag_name).join(',')
   end
 
   def update
     @stage = Stage.find(params[:id])
     tag_list = params[:stage][:tag_name].split(',')
+    list_all = params[:stage][:list_name].split(',')
     if @stage.update_attributes(stage_params)
       @stage.save_tag(tag_list)
+      @stage.save_list(list_all)
       flash[:success] = "更新されました"
       redirect_to @stage
     end
