@@ -1,5 +1,6 @@
 class MusicsController < ApplicationController
   before_action :logged_in_user, except: :show
+  before_action :set_item_search_query
 
   def new
     @music = Music.new

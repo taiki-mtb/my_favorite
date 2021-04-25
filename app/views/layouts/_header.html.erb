@@ -3,9 +3,11 @@
 <!-- ナビゲーションバー -->    
     <nav class="navbar navbar-light bg-light fixed-top">
       <%= link_to "top", root_url, class: "navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <%= search_form_for @q, url: search_dances_path do |f| %>
+        <%= f.label :name_cont,"Keyword" %>
+        <%= f.search_field :name_cont %>
+        <%= f.submit "検索" %>
+      <% end %>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <!-- ドロップダウンタイプ -->

@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
+  before_action :set_q
+
+  def set_q
+    @q = Dance.ransack(params[:q])
+    @results = @q.result
+  end
 
   private
 

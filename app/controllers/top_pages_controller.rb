@@ -1,4 +1,5 @@
 class TopPagesController < ApplicationController
+
   def top
     @movie = Dance.all | Music.all
     @random_movie = @movie.sample
