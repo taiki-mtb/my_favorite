@@ -1,6 +1,12 @@
 <%= form_for(@comment) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <%= hidden_field_tag :dance_id, @dance.id %>
+  <% if !@dance.nil? %>
+    <%= hidden_field_tag :dance_id, @dance.id %>
+  <% elsif !@music.nil?%>
+    <%= hidden_field_tag :music_id, @music.id %>
+  <% elsif !@stage.nil?%>
+    <%= hidden_field_tag :stage_id, @stage.id %>
+  <% end %>
   <div class="row">
     <div class="col-md-8 col-md-offset-1">
       <div class="field">

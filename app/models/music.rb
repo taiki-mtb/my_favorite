@@ -13,4 +13,8 @@ class Music < ApplicationRecord
   def shape_off
     self.youtube_url = youtube_url.last(11)
   end
+
+  def feed_comment(music_id)
+    Comment.where("music_id = ?", music_id)
+  end
 end
