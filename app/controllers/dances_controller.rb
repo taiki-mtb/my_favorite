@@ -12,6 +12,10 @@ class DancesController < ApplicationController
   end
 
   def search
+    @results = @q_dance.result
+  end
+
+  def tag
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @dances = @tag.dances.all

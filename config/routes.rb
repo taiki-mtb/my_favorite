@@ -3,14 +3,26 @@ Rails.application.routes.draw do
   get    :login,     to: 'sessions#new'
   post   :login,     to: 'sessions#create'
   delete :logout,    to: 'sessions#destroy'
-  resources :musics
-  resources :dances
-  resources :stages
+  resources :musics do
+    collection do
+      get 'search'
+    end    
+  end
+  resources :dances do
+    collection do
+      get 'search'
+    end
+  end
+  resources :stages do
+    collection do
+      get 'search'
+    end      
+  end
   resources :artists
   resources :tags do
-    get 'musics',    to: 'musics#search'
-    get 'dances',    to: 'dances#search'
-    get 'stages',    to: 'stages#search'
+    get 'musics',    to: 'musics#tag'
+    get 'dances',    to: 'dances#tag'
+    get 'stages',    to: 'stages#tag'
   end
   resources :lists do
     get 'musics',    to: 'musics#list'

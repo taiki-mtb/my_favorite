@@ -13,6 +13,10 @@ class StagesController < ApplicationController
   end
 
   def search
+    @results = @q_stage.result
+  end
+
+  def tag
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @stages = @tag.stages.all

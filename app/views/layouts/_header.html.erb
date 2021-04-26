@@ -1,50 +1,113 @@
 <header class="navbar navbar-fixed-top">
- <div class="container">
-<!-- ナビゲーションバー -->    
-    <nav class="navbar navbar-light bg-light fixed-top">
-      <%= link_to "top", root_url, class: "navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <!-- ドロップダウンタイプ -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown link
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-light bg-light fixed-top">
+<!-- Top -->
+        <div class="col-2">
+          <%= link_to "top", root_url, class: "navbar-brand" %>
+        </div>
+<!-- 検索バー -->
+        <div class="search_bar navbar-nav col-9">
+          <div class="row">
+              <div class="col-2 select_box">
+                <%= select_tag(:select_box, options_for_select([['Dances', 1], ['Musics', 2], ['Stages', 3]]), {:onchange => "change();"}) %>
+              </div>
+              <div class="search_form col-9" id="search_dance">
+                <%= search_form_for @q_dance, url: search_dances_path do |f| %>
+                  <div class="row">
+                    <div class="col-10">
+                      <%= f.search_field :name_cont, class: "form-control" %>
+                    </div>
+                    <div class="search_submit col-2">
+                      <%= f.submit '検索', class: "btn" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <div class="search_form col-9" id="search_music" style="display: none;">
+                <%= search_form_for @q_music, url: search_musics_path do |f| %>
+                  <div class="row">
+                    <div class="col-10">
+                      <%= f.search_field :name_cont, class: "form-control" %>
+                    </div>
+                    <div class="search_submit col-2">
+                      <%= f.submit '検索', class: "btn" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <div class="search_form col-9" id="search_stage" style="display: none;">
+                <%= search_form_for @q_stage, url: search_stages_path do |f| %>
+                  <div class="row">
+                    <div class="col-10">
+                      <%= f.search_field :name_cont, class: "form-control" %>
+                    </div>
+                    <div class="search_submit col-2">
+                      <%= f.submit '検索', class: "btn" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+          </div>
+        </div>
+<!-- ハンバーガーボタン -->
+        <div class="hamburger col-1">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <% if logged_in? %>
+                  <li class="nav-item">
+                    <%= link_to 'new_music', '/musics/new', class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'new_dance', '/dances/new', class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'new_stage', '/stages/new', class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'new_artist', '/artists/new', class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %>
+                  </li>
+                <% else %>
+                  <li class="nav-item">
+                    <%= link_to 'ログイン', login_path, class: "nav-link" %>
+                  </li>
+                <% end %>
+                  <li class="nav-item">
+                    <%= link_to '再生リスト', '/lists/', class: "nav-link" %>
+                  </li>
+              </ul>
             </div>
-          </li>
-          <% if logged_in? %>
-            <li class="nav-item">
-              <%= link_to 'new_music', '/musics/new', class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'new_dance', '/dances/new', class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'new_stage', '/stages/new', class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'new_artist', '/artists/new', class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to 'ログイン', login_path, class: "nav-link" %>
-            </li>
-          <% end %>
-            <li class="nav-item">
-              <%= link_to '再生リスト', '/lists/', class: "nav-link" %>
-            </li>
-        </ul>
+        </div>
+        </div>
       </div>
     </nav>
+  </div>
  </div>
 </header>
+
+<script>
+function change() {
+  if (document.getElementById("select_box")) {
+    select_boxValue = document.getElementById("select_box").value;
+    if (select_boxValue == "1") {
+      document.getElementById("search_dance").style.display = "";
+      document.getElementById("search_music").style.display = "none";
+      document.getElementById("search_stage").style.display = "none";
+    } else if (select_boxValue == "2") {
+      document.getElementById("search_dance").style.display = "none";
+      document.getElementById("search_music").style.display = "";
+      document.getElementById("search_stage").style.display = "none";
+    } else if (select_boxValue == "3") {
+      document.getElementById("search_dance").style.display = "none";
+      document.getElementById("search_music").style.display = "none";
+      document.getElementById("search_stage").style.display = "";
+    }
+  }
+}
+</script>

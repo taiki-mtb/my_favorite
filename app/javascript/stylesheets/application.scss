@@ -264,6 +264,7 @@ img.sized {
 
 
 
+
 //// トップページ  ////
 
 .contents_index {
@@ -281,3 +282,32 @@ img.sized {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
+
+
+
+////  検索フォーム  ////
+
+.search_bar {
+  margin-top: 10px;
+}
+
+.select_box {
+  padding-right: 0px !important;
+}
+
+#select_box {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    width: 80%;
+    /* margin-bottom: 5px; */
+    box-sizing: border-box;
+    height: calc(1.5em + 0.75rem + 2px);
+}
+
+.search_submit {
+  right: 35px;
+}
+
+
+

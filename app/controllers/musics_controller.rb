@@ -12,6 +12,10 @@ class MusicsController < ApplicationController
   end
 
   def search
+    @results = @q_music.result
+  end
+
+  def tag
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @musics = @tag.musics.all
