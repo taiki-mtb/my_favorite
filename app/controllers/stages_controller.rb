@@ -10,6 +10,7 @@ class StagesController < ApplicationController
     @stage = Stage.find(params[:id])
     @stage_tags = @stage.tags
     @stage_lists = @stage.lists
+    @comment = Comment.new
   end
 
   def search

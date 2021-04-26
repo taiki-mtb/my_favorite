@@ -8,4 +8,5 @@ class Stage < ApplicationRecord
   has_many :tags, through: :tag_maps
   has_many :list_maps, dependent: :destroy
   has_many :lists, through: :list_maps
+  has_many :comments, dependent: :destroy
 end

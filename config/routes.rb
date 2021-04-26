@@ -29,4 +29,5 @@ Rails.application.routes.draw do
     get 'dances',    to: 'dances#list'
     get 'stages',    to: 'stages#list'
   end
+  resources :comments, only: [:create, :destroy]
 end

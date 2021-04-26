@@ -8,7 +8,8 @@ class DancesController < ApplicationController
   def show
     @dance = Dance.find(params[:id])
     @dance_tags = @dance.tags
-    @dance_lists = @dance.lists  
+    @dance_lists = @dance.lists
+    @comment = Comment.new
   end
 
   def search
