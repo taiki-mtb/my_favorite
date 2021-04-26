@@ -1,6 +1,5 @@
 class MusicsController < ApplicationController
   before_action :logged_in_user, except: :show
-  before_action :set_item_search_query
 
   def new
     @music = Music.new
@@ -13,6 +12,10 @@ class MusicsController < ApplicationController
   end
 
   def search
+    @results = @q_music.result
+  end
+
+  def tag
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @musics = @tag.musics.all

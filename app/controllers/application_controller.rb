@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   before_action :set_q
 
   def set_q
-    @q = Dance.ransack(params[:q])
-    @results = @q.result
+    @q_dance = Dance.ransack(params[:q])
+    @q_music = Music.ransack(params[:q])
+    @q_stage = Stage.ransack(params[:q])
   end
 
   private

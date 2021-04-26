@@ -1,18 +1,12 @@
 <% provide(:title, "search") %>
 <div class="container">
   <div class="row">
-    <!-- <div class="col-md-12"> -->
-      <!-- <#% @tag_list.each do |list| %> -->
-        <!-- <#%= link_to list.tag_name, tag_musics_path(music_tag_id: list.id) %>   -->
-      <!-- <#% end %> -->
-    <!-- </div> -->
     <div class="col-12">
-      <p>
-        <%= "タグが - #{@tag.tag_name} - のmusic一覧" %>
-      </p>
-      <% @musics.each do |music| %>
-        <%= link_to music.name, music %>
-      <% end %>
+      <br>
+      <br>
+        <% @results.each do |result| %>
+          <%= result.name %>
+        <% end %>
     </div>
   </div>
 </div>

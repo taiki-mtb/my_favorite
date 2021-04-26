@@ -3,11 +3,28 @@
 <!-- ナビゲーションバー -->    
     <nav class="navbar navbar-light bg-light fixed-top">
       <%= link_to "top", root_url, class: "navbar-brand" %>
-      <%= search_form_for @q, url: search_dances_path do |f| %>
-        <%= f.label :name_cont,"Keyword" %>
-        <%= f.search_field :name_cont %>
-        <%= f.submit "検索" %>
-      <% end %>
+      <%= select_tag(:select_box, options_for_select([['Dances', 1], ['Musics', 2], ['Stages', 3]]), {:onchange => "change();"}) %>
+      <div id="search_dance">
+        <%= search_form_for @q_dance, url: search_dances_path do |f| %>
+          <%= f.label :name_cont,"Keyword" %>
+          <%= f.search_field :name_cont %>
+          <%= f.submit '検索' %>
+        <% end %>
+      </div>
+      <div id="search_music" style="display: none">
+        <%= search_form_for @q_music, url: search_musics_path do |f| %>
+          <%= f.label :name_cont,"Keyword" %>
+          <%= f.search_field :name_cont %>
+          <%= f.submit '検索' %>
+        <% end %>
+      </div>
+      <div id="search_stage" style="display: none">
+        <%= search_form_for @q_stage, url: search_stages_path do |f| %>
+          <%= f.label :name_cont,"Keyword" %>
+          <%= f.search_field :name_cont %>
+          <%= f.submit '検索' %>
+        <% end %>
+      </div>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <!-- ドロップダウンタイプ -->
@@ -50,3 +67,24 @@
     </nav>
  </div>
 </header>
+
+<script>
+function change() {
+  if (document.getElementById("select_box")) {
+    select_boxValue = document.getElementById("select_box").value;
+    if (select_boxValue == "1") {
+      document.getElementById("search_dance").style.display = "";
+      document.getElementById("search_music").style.display = "none";
+      document.getElementById("search_stage").style.display = "none";
+    } else if (select_boxValue == "2") {
+      document.getElementById("search_dance").style.display = "none";
+      document.getElementById("search_music").style.display = "";
+      document.getElementById("search_stage").style.display = "none";
+    } else if (select_boxValue == "3") {
+      document.getElementById("search_dance").style.display = "none";
+      document.getElementById("search_music").style.display = "none";
+      document.getElementById("search_stage").style.display = "";
+    }
+  }
+}
+</script>

@@ -1,6 +1,5 @@
 class DancesController < ApplicationController
   before_action :logged_in_user, except: :show
-  before_action :set_q, only: :search
 
   def new
     @dance = Dance.new
@@ -13,7 +12,7 @@ class DancesController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q_dance.result
   end
 
   def tag

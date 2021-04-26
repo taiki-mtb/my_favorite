@@ -1,6 +1,5 @@
 class StagesController < ApplicationController
   before_action :logged_in_user, except: :show
-  before_action :set_item_search_query
 
   def new
     @stage = Stage.new
@@ -14,6 +13,10 @@ class StagesController < ApplicationController
   end
 
   def search
+    @results = @q_stage.result
+  end
+
+  def tag
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @stages = @tag.stages.all
