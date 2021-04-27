@@ -9,6 +9,7 @@ class MusicsController < ApplicationController
     @music = Music.find(params[:id])
     @music_tags = @music.tags
     @music_lists = @music.lists
+    @comment = Comment.new
   end
 
   def search

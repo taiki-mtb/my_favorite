@@ -1,0 +1,20 @@
+<%= form_for(@comment) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <% if !@dance.nil? %>
+    <%= hidden_field_tag :dance_id, @dance.id %>
+  <% elsif !@music.nil?%>
+    <%= hidden_field_tag :music_id, @music.id %>
+  <% elsif !@stage.nil?%>
+    <%= hidden_field_tag :stage_id, @stage.id %>
+  <% end %>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="field">
+        <%= f.text_area :content, placeholder: "コメントを入力..." %>
+      </div>
+    </div>
+    <div class="col-4 offset-4">
+      <%= f.submit "コメント", class: "btn comment_btn" %>
+    </div>
+  </div>
+<% end %>

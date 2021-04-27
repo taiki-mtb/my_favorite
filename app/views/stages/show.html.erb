@@ -1,4 +1,5 @@
 <% provide(:title, "#{@stage.name}") %>
+<% @comments = @stage.feed_comment(@stage.id) %>
 <div class="container">
   <div class="row">
     <% if @stage.images.attached? %>
@@ -27,6 +28,10 @@
           <% end %>
         <% end %>
       </p>
+    </div>
+    <div class="col-12 comment">
+      <%= render "comments/feed_comments" %>
+      <%= render "comments/new" %>
     </div>
   </div>
 </div>
