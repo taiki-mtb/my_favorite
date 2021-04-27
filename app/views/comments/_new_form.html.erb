@@ -8,13 +8,13 @@
     <%= hidden_field_tag :stage_id, @stage.id %>
   <% end %>
   <div class="row">
-    <div class="col-md-8 col-md-offset-1">
+    <div class="col-6 offset-3">
       <div class="field">
         <%= f.text_area :content, placeholder: "コメントを入力..." %>
       </div>
     </div>
-    <div class="col-md-3">
-      <%= f.submit "コメント", class: "btn btn-primary" %>
+    <div class="col-4 offset-4">
+      <%= f.submit "コメント", class: "btn comment_btn" %>
     </div>
   </div>
 <% end %>

@@ -44,7 +44,7 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
- #error_explanation  {
+ #error_explanation {
   color: red;
   ul {
     color: red;
@@ -323,16 +323,25 @@ img.sized {
   li {
     font-size: 14px;
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8 ;
     .comment {
       font-size: 16px;
     }
   }
 }
 
+.comment-line {
+  border-top: 1px solid #e8e8e8 ;
+}
+
 .comment-create-at {
   color: grey;
 }
 
+.comment ul {
+  margin-left: -35px !important;
+}
 
+.comment_btn {
+  background-color: silver;
+}
 
