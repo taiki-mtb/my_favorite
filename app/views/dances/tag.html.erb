@@ -1,18 +1,14 @@
 <% provide(:title, "search") %>
 <div class="container">
-  <div class="row">
-    <!-- <div class="col-md-12"> -->
-      <!-- <#% @tag_list.each do |list| %> -->
-        <!-- <#%= link_to list.tag_name, tag_dances_path(dance_tag_id: list.id) %>   -->
-      <!-- <#% end %> -->
-    <!-- </div> -->
-    <div class="col-12">
-      <p>
-        <%= "タグが - #{@tag.tag_name} - のdance一覧" %>
-      </p>
+  <p>
+    <%= "タグが - #{@tag.tag_name} - のdance一覧" %>
+  </p>
+  <div class="row search_result">
       <% @dances.each do |dance| %>
-        <%= link_to dance.name, dance %>
+      <div class="search_image">
+        <%= link_to image_tag("http://img.youtube.com/vi/#{dance.youtube_url}/hqdefault.jpg", class: "contents_image"), dance %>
+        <%= link_to dance.name, dance, class: "result_name" %>
+      </div>
       <% end %>
-    </div>
   </div>
 </div>

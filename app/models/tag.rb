@@ -4,5 +4,4 @@ class Tag < ApplicationRecord
   has_many  :dances, through: :tag_maps
   has_many  :musics, through: :tag_maps
   has_many  :stages, through: :tag_maps
-
 end

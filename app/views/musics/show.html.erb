@@ -19,15 +19,15 @@
         <h5>リリース：<%= @music.date %></h5>
       </div>
       <p>
+        #Tag:
         <% @music_tags.each do |tag| %>
           <%= link_to tag.tag_name, tag_musics_path(tag_id: tag.id) %>
         <% end %>
       </p>
       <p>
-        <% if @music.lists %>
-          <% @music_lists.each do |list| %>
-            <%= link_to list.list_name, list_musics_path(list_id: list.id) %>
-          <% end %>
+        #List: 
+        <% @music_lists.each do |list| %>
+          <%= link_to list.list_name, "../lists/#{list.id}" %>
         <% end %>
       </p>
     </div>

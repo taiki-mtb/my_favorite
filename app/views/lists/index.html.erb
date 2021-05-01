@@ -1,11 +1,16 @@
 <% provide(:title, "list") %>
+
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <p>再生リスト一覧</p>
-      <% @list.each do |list| %>
-        <%= link_to list.list_name, list_path(list) %>  
-      <% end %>      
-    </div>
+  <p>再生リスト一覧</p>
+  <div class="row search_result">
+    <% @list.each do |list| %>
+    <% @contents = list.musics.all | list.dances.all %>
+      <div class="search_image">
+        <%= link_to image_tag("http://img.youtube.com/vi/#{@contents.sample.youtube_url}/hqdefault.jpg", class: "contents_image"), list_path(list) %>
+        <%= link_to list.list_name, list_path(list), class: "result_name" %> 
+      </div> 
+    <% end %>
   </div>
 </div>
+
+
