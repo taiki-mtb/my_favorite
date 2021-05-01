@@ -1,0 +1,11 @@
+<% provide(:title, "search") %>
+<div class="container">
+  <div class="row search_result">
+    <% @results.each do |result| %>
+      <div class="search_image">
+        <%= link_to image_tag("http://img.youtube.com/vi/#{result.youtube_url}/hqdefault.jpg", class: "contents_image"), "#{result.id}" %>
+        <%= link_to result.name, "#{result.id}", class: "result_name" %>
+      </div>
+    <% end %>
+  </div>
+</div>

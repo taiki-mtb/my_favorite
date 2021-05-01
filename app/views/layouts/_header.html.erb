@@ -16,7 +16,9 @@
                 <%= search_form_for @q_dance, url: search_dances_path do |f| %>
                   <div class="row">
                     <div class="col-10">
-                      <%= f.search_field :name_cont, class: "form-control" %>
+                      <%= f.search_field :name_cont, 
+                                         placeholder: "all",
+                                         class: "form-control" %>
                     </div>
                     <div class="search_submit col-2">
                       <%= f.submit '検索', class: "btn" %>
@@ -28,7 +30,9 @@
                 <%= search_form_for @q_music, url: search_musics_path do |f| %>
                   <div class="row">
                     <div class="col-10">
-                      <%= f.search_field :name_cont, class: "form-control" %>
+                      <%= f.search_field :name_cont, 
+                                         placeholder: "all",
+                                         class: "form-control" %>
                     </div>
                     <div class="search_submit col-2">
                       <%= f.submit '検索', class: "btn" %>
@@ -40,7 +44,9 @@
                 <%= search_form_for @q_stage, url: search_stages_path do |f| %>
                   <div class="row">
                     <div class="col-10">
-                      <%= f.search_field :name_cont, class: "form-control" %>
+                      <%= f.search_field :name_cont, 
+                                         placeholder: "all",
+                                         class: "form-control" %>
                     </div>
                     <div class="search_submit col-2">
                       <%= f.submit '検索', class: "btn" %>

@@ -1,13 +1,17 @@
 <% provide(:title, "list") %>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <%= "#{@list.list_name}の再生リスト" %>
-    </div>
-    <div class="col-md-12">
-      <% @contents.each do |contents| %>
-        <%= link_to contents.name, "../#{"#{contents.class}".downcase}s/#{contents.id}" %>
-      <% end %>
-    </div>
+  <p>
+    <%= "#{@list.list_name}の再生リスト" %>   
+    <%= link_to "削除する", list_path(@list), method: :delete,
+        data: { confirm: "本当に削除してよろしいですか？" } %>
+  </p>
+  <div class="row search_result">
+    <% @contents.each do |contents| %>
+      <div class="search_image">
+        <%= link_to image_tag("http://img.youtube.com/vi/#{contents.youtube_url}/hqdefault.jpg", class: "contents_image"), "../#{"#{contents.class}".downcase}s/#{contents.id}" %>
+        <%= link_to contents.name, "../#{"#{contents.class}".downcase}s/#{contents.id}", class: "result_name" %>
+      </div>
+    <% end %>
   </div>
 </div>
+

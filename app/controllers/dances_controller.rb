@@ -1,5 +1,5 @@
 class DancesController < ApplicationController
-  before_action :logged_in_user, except: :show
+  before_action :logged_in_user, except: [:show, :tag, :list, :search]
 
   def new
     @dance = Dance.new
@@ -24,7 +24,7 @@ class DancesController < ApplicationController
 
   def list
     @list_all = List.all
-    @list = @list.lists
+    @list = List.find(params[:list_id])
     @dances = @list.dances.all
   end
 
@@ -57,6 +57,9 @@ class DancesController < ApplicationController
       @dance.save_list(list_all)
       flash[:success] = "更新されました"
       redirect_to @dance
+    else
+      flash[:danger] = "エラーがあります"
+      render @dance
     end
   end
 
