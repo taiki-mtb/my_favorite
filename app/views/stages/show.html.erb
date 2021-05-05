@@ -35,5 +35,19 @@
       <%= render "comments/feed_comments" %>
       <%= render "comments/new" %>
     </div>
+    <div class="relate_contents">
+      <% @stage_tags.each do |stage_tag| %>
+        <% stage_tag.stages.each do |relate_stage| %>
+          <% unless relate_stage === @stage %>
+              <% if relate_stage.images.attached? %>
+            <div class="relate_image">
+              <%= link_to image_tag(relate_stage.images.first, class: "stage_contents_image "), relate_stage %>
+              <%= link_to relate_stage.name, relate_stage, class: "result_name" %>
+            </div>
+              <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

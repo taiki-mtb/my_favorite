@@ -30,7 +30,7 @@ class StagesController < ApplicationController
   end
 
   def create
-    @stage = Stage.new(stage_params.slice(:title, :info, :from_date, :until_date, :place, images: []))
+    @stage = Stage.new(stage_params)
     tag_list = params[:stage][:tag_name].split(',')
     list_all = params[:stage][:list_name].split(',')
     if @stage.save
@@ -77,6 +77,6 @@ class StagesController < ApplicationController
   private
 
     def stage_params
-      params.require(:stage).permit(:title, :info, :from_date, :until_date, :place, images: [])
+      params.require(:stage).permit(:name, :info, :from_date, :until_date, :place, images: [])
     end
 end

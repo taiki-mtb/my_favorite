@@ -35,5 +35,17 @@
       <%= render "comments/feed_comments" %>
       <%= render "comments/new" %>
     </div>
+    <div class="relate_contents">
+      <% @dance_tags.each do |dance_tag| %>
+        <% dance_tag.dances.each do |relate_dance| %>
+          <% unless relate_dance === @dance %>
+            <div class="relate_image">
+              <%= link_to image_tag("http://img.youtube.com/vi/#{relate_dance.youtube_url}/mqdefault.jpg", class: "contents_image"), relate_dance %>
+              <%= link_to relate_dance.name, relate_dance, class: "result_name" %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

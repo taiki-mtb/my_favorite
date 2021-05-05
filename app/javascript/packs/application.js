@@ -9,7 +9,12 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("bootstrap")
+import "../function"
+import Swiper from 'swiper/bundle';
+import 'swiper/swiper-bundle.css';
 import "../stylesheets/application.scss"
+
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

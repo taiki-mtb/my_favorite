@@ -371,3 +371,24 @@ img.sized {
 .comment_btn {
   background-color: silver;
 }
+
+
+
+//// 関連コンテンツ ////
+
+.relate_contents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.relate_image {
+  width: 30%;
+}
+
+.stage_contents_image {
+  width: 100%;
+  border-radius: 10px;
+  height: 10em;
+  margin-top: 10px;
+}
